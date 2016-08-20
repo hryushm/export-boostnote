@@ -2,11 +2,17 @@
 import sys
 import json
 import re
+import os.path
 from datetime import datetime as dt
 
 MDDIR = './markdown/'
 SNDIR = './snippets/'
 DATE_PATTERN = r"\d{4}-\d{2}-\d{2}"
+
+if not os.path.exists(MDDIR):
+    os.mkdir(MDDIR)
+if not os.path.exists(SNDIR):
+    os.mkdir(SNDIR)
 
 notes = json.load(open(sys.argv[1]))['notes']
 
